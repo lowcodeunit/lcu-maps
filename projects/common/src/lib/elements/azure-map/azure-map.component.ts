@@ -62,7 +62,7 @@ implements OnInit, AfterContentInit, AfterViewInit {
   @ViewChild('popupsContainer', {read: ViewContainerRef}) popupsContainer: ViewContainerRef;
   // @ViewChild('mapWrapper', {read: ElementRef}) mapWrapper: ElementRef;
   protected mapWrapper: ElementRef;
-  @ViewChildren(LcuMapsAzureMapElementComponent) childrenComponent: QueryList<LcuMapsAzureMapElementComponent>;
+  @ViewChildren('mapWrapper') childrenComponent: QueryList<LcuMapsAzureMapElementComponent>;
 
   /**
    * For create and control popup
@@ -102,7 +102,10 @@ implements OnInit, AfterContentInit, AfterViewInit {
     this.emitLoaded();
     this.test.emit('test');
 
-    this.childrenComponent.changes.subscribe((comps: QueryList<LcuMapsAzureMapElementComponent>) => {
+    // this.childrenComponent.changes.subscribe((comps: QueryList<LcuMapsAzureMapElementComponent>) => {
+    //   debugger;
+    // });
+    this.childrenComponent.forEach((instance: any) => {
       debugger;
     });
   }
