@@ -55,6 +55,8 @@ implements OnInit, AfterContentInit, AfterViewInit {
   @Output('loaded')
   public Loaded: EventEmitter<any>;
 
+  @Output() test: EventEmitter<any>;
+
   @ViewChild('popupsContainer', {read: ViewContainerRef}) popupsContainer: ViewContainerRef;
   @ViewChild('mapWrapper', {read: ElementRef}) mapWrapper: ElementRef;
 
@@ -78,7 +80,8 @@ implements OnInit, AfterContentInit, AfterViewInit {
     super(injector);
 
     this.OnMapClick = new EventEmitter<atlas.data.Position>();
-    this.Loaded = new EventEmitter<any>();
+    this.Loaded = new EventEmitter();
+    this.test = new EventEmitter();
   }
 
   //  Life Cycle
@@ -93,6 +96,7 @@ implements OnInit, AfterContentInit, AfterViewInit {
 
   public ngAfterViewInit(): void {
     this.emitLoaded();
+    this.test.emit('test');
   }
 
   
@@ -114,7 +118,9 @@ implements OnInit, AfterContentInit, AfterViewInit {
 
   protected emitLoaded(): void {
     if (this.map) {
-      this.Loaded = new EventEmitter<any>();
+      if (!this.Loaded) {
+        this.Loaded = new EventEmitter();
+      }
       this.Loaded.emit(true);
     } else {
       setTimeout(this.emitLoaded, 100);
