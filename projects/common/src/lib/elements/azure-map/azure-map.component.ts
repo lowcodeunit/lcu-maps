@@ -143,6 +143,9 @@ implements OnInit, AfterContentInit, AfterViewInit {
   }
 
   protected startMapClickListener(): void {
+    if (!this.map) {
+      return;
+    }
     this.map.addEventListener('click', (e: any) => {
       this.OnMapClick.emit(e.position);
       // On click you emit geo position
