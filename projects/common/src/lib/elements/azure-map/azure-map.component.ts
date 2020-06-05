@@ -101,6 +101,9 @@ implements OnInit, AfterContentInit, AfterViewInit {
   //  Helpers
   public createMap(id: string, config: any): void {
     try {
+      if (!this.mapWrapper) {
+        return;
+      }
       this.mapWrapper.nativeElement.setAttribute('id', id);
       this.map = new atlas.Map(id, config); // Init map box
       console.log('Map was created!', this.map);
