@@ -14,7 +14,9 @@ import {
   EventEmitter,
   ContentChild,
   TemplateRef,
-  EmbeddedViewRef } from '@angular/core';
+  EmbeddedViewRef, 
+  QueryList,
+  ViewChildren} from '@angular/core';
 import { LCUElementContext, LcuElementComponent } from '@lcu/common';
 import { AtlasPopupDirective } from '../../directives/atlas-popup.directive';
 import { AmFeature } from '../../models/am-feature';
@@ -58,7 +60,8 @@ implements OnInit, AfterContentInit, AfterViewInit {
   @Output() test: EventEmitter<any>;
 
   @ViewChild('popupsContainer', {read: ViewContainerRef}) popupsContainer: ViewContainerRef;
-  @ViewChild('mapWrapper', {read: ElementRef}) mapWrapper: ElementRef;
+  // @ViewChild('mapWrapper', {read: ElementRef}) mapWrapper: ElementRef;
+  @ViewChildren('mapWrapper') childrenComponent: QueryList<LcuMapsAzureMapElementComponent>;
 
   /**
    * For create and control popup
@@ -97,6 +100,10 @@ implements OnInit, AfterContentInit, AfterViewInit {
   public ngAfterViewInit(): void {
     this.emitLoaded();
     this.test.emit('test');
+
+    this.childrenComponent.changes.subscribe((comps: QueryList<LcuMapsAzureMapElementComponent>) => {
+      debugger;
+    });
   }
 
   
