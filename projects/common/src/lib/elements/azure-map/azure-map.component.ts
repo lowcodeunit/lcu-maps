@@ -62,7 +62,7 @@ implements OnInit, AfterContentInit, AfterViewInit {
   @ViewChild('popupsContainer', {read: ViewContainerRef}) popupsContainer: ViewContainerRef;
   // @ViewChild('mapWrapper', {read: ElementRef}) mapWrapper: ElementRef;
   protected mapWrapper: ElementRef;
-  @ViewChildren('mapWrapper') childrenComponent: QueryList<LcuMapsAzureMapElementComponent>;
+  @ViewChildren(LcuMapsAzureMapElementComponent) childrenComponent: QueryList<LcuMapsAzureMapElementComponent>;
 
   /**
    * For create and control popup
