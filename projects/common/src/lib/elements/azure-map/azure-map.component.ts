@@ -114,6 +114,7 @@ implements OnInit, AfterContentInit, AfterViewInit {
 
   protected emitLoaded(): void {
     if (this.map) {
+      this.Loaded = new EventEmitter<any>();
       this.Loaded.emit();
     } else {
       setTimeout(this.emitLoaded, 100);
