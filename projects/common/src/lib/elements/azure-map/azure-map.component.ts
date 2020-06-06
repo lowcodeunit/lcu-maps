@@ -83,7 +83,6 @@ implements OnInit, AfterContentInit, AfterViewInit {
 
     this.OnMapClick = new EventEmitter<atlas.data.Position>();
     this.Loaded = new EventEmitter();
-    this.test = new EventEmitter();
   }
 
   //  Life Cycle
