@@ -99,15 +99,15 @@ implements OnInit, AfterContentInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
+    this.childrenComponent.forEach((instance: any) => {
+      this.mapWrapper = instance;
+    });
     this.emitLoaded();
     this.test.emit('test');
 
     // this.childrenComponent.changes.subscribe((comps: QueryList<LcuMapsAzureMapElementComponent>) => {
     //   debugger;
     // });
-    this.childrenComponent.forEach((instance: any) => {
-      debugger;
-    });
   }
 
   
