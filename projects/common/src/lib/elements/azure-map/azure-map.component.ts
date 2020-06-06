@@ -57,8 +57,6 @@ implements OnInit, AfterContentInit, AfterViewInit {
   @Output('loaded')
   public Loaded: EventEmitter<any>;
 
-  @Output() test: EventEmitter<any>;
-
   @ViewChild('popupsContainer', {read: ViewContainerRef}) popupsContainer: ViewContainerRef;
   // @ViewChild('mapWrapper', {read: ElementRef}) mapWrapper: ElementRef;
   protected mapWrapper: ElementRef;
@@ -94,17 +92,18 @@ implements OnInit, AfterContentInit, AfterViewInit {
   }
 
   public ngAfterContentInit(): void {
-    this.createMap(this.ID, this.InitialConfig); // Initial map
-    this.startMapClickListener(); // Start emitter
+    // this.createMap(this.ID, this.InitialConfig); // Initial map
+    // this.startMapClickListener(); // Start emitter
   }
 
   public ngAfterViewInit(): void {
     this.childrenComponent.forEach((instance: any) => {
       this.mapWrapper = instance;
     });
-    this.emitLoaded();
-    this.test.emit('test');
 
+    this.createMap(this.ID, this.InitialConfig); // Initial map
+    this.startMapClickListener(); // Start emitter
+    this.emitLoaded();
     // this.childrenComponent.changes.subscribe((comps: QueryList<LcuMapsAzureMapElementComponent>) => {
     //   debugger;
     // });
