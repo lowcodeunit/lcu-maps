@@ -1,0 +1,20 @@
+{
+	"templates": {
+		"repository": "lowcodeunit-devkit/lcu-cli-templates-core",
+		"scope": "@lowcodeunit",
+		"workspace": "lcu-maps"
+	},
+	"config": {
+		"wc": [
+			"wc/lcu-maps.lcu.js"
+		],
+		"solutions": {
+			"azure-map": {
+				"element": "lcu-maps-azure-map-element"
+			}
+		},
+		"elements": {},
+		"data-flow": {},
+		"dependencies": {}
+	}
+}

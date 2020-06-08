@@ -1,0 +1,21 @@
+{
+  "name": "@lowcodeunit/lcu-maps-common",
+  "version": "1.1.14-integration",
+  "peerDependencies": {
+    "@angular/common": "^9.1.9",
+    "@angular/core": "^9.1.9"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "main": "bundles/lowcodeunit-lcu-maps-common.umd.js",
+  "module": "fesm5/lowcodeunit-lcu-maps-common.js",
+  "es2015": "fesm2015/lowcodeunit-lcu-maps-common.js",
+  "esm5": "esm5/lowcodeunit-lcu-maps-common.js",
+  "esm2015": "esm2015/lowcodeunit-lcu-maps-common.js",
+  "fesm5": "fesm5/lowcodeunit-lcu-maps-common.js",
+  "fesm2015": "fesm2015/lowcodeunit-lcu-maps-common.js",
+  "typings": "lowcodeunit-lcu-maps-common.d.ts",
+  "metadata": "lowcodeunit-lcu-maps-common.metadata.json",
+  "sideEffects": false
+}
