@@ -121,7 +121,7 @@ implements OnInit, AfterContentInit, AfterViewInit {
       this.map = new atlas.Map(id, config); // Init map box
       console.log('Map was created!', this.map);
     } catch (e) {
-      console.log('CHECK YOUR CONFIG!', e);
+      console.error('CHECK YOUR CONFIG!', e);
     }
   }
 
