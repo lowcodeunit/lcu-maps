@@ -2,8 +2,8 @@
 	"name": "@lowcodeunit/lcu-maps-common",
 	"version": "0.0.1",
 	"peerDependencies": {
-		"@angular/common": "^9.1.9",
-		"@angular/core": "^9.1.9"
+		"@angular/common": "^10.0.8",
+		"@angular/core": "^10.0.8"
 	},
 	"dependencies": {
 		"tslib": "^1.10.0"
