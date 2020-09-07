@@ -1,10 +1,10 @@
-import { __decorate, __extends, __values } from 'tslib';
-import { Injectable, ɵɵdefineInjectable, EventEmitter, Input, Output, Component, ElementRef, Renderer2, HostListener, Directive, Injector, ViewChild, ViewContainerRef, ViewChildren, ContentChild, TemplateRef, NgModule, ɵɵinject, INJECTOR } from '@angular/core';
+import { Injectable, ɵɵdefineInjectable, EventEmitter, Component, Input, Output, ElementRef, Renderer2, Directive, HostListener, Injector, ViewChild, ViewContainerRef, ViewChildren, ContentChild, TemplateRef, NgModule, ɵɵinject, INJECTOR } from '@angular/core';
 import { Subject, BehaviorSubject, of } from 'rxjs';
 import { fromPromise } from 'rxjs/internal-compatibility';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ThemeColorPickerService, LCUElementContext, LcuElementComponent, FathymSharedModule, MaterialModule, StateContext } from '@lcu/common';
+import { __extends, __values } from 'tslib';
 
 var sources = [
     {
@@ -74,9 +74,10 @@ var LoadMapService = /** @class */ (function () {
     LoadMapService.prototype.observableComponent = function () {
         return this.loadedSubject.asObservable();
     };
-    LoadMapService = __decorate([
-        Injectable()
-    ], LoadMapService);
+    LoadMapService.decorators = [
+        { type: Injectable }
+    ];
+    LoadMapService.ctorParameters = function () { return []; };
     return LoadMapService;
 }());
 
@@ -112,11 +113,12 @@ var LcuService = /** @class */ (function () {
         ];
     };
     LcuService.ɵprov = ɵɵdefineInjectable({ factory: function LcuService_Factory() { return new LcuService(); }, token: LcuService, providedIn: "root" });
-    LcuService = __decorate([
-        Injectable({
-            providedIn: 'root'
-        })
-    ], LcuService);
+    LcuService.decorators = [
+        { type: Injectable, args: [{
+                    providedIn: 'root'
+                },] }
+    ];
+    LcuService.ctorParameters = function () { return []; };
     return LcuService;
 }());
 
@@ -131,19 +133,18 @@ var LcuComponent = /** @class */ (function () {
             window.open(url);
         }
     };
-    __decorate([
-        Input()
-    ], LcuComponent.prototype, "card", void 0);
-    __decorate([
-        Output()
-    ], LcuComponent.prototype, "cardSelected", void 0);
-    LcuComponent = __decorate([
-        Component({
-            selector: 'lcu-lcu',
-            template: "<mat-card lcu id=\"lcuCard{{card.LcuId}}\" class=\"lcu-card\" (click)=\"SelectCard(card.Url)\">\r\n    <mat-card-header>\r\n        <div mat-card-avatar class=\"lcu-card-avatar\">\r\n        <mat-icon color=\"primary\">{{card.Icon}}</mat-icon>\r\n        </div>\r\n        <mat-card-title class=\"paragraph-title\">{{card.Title}}</mat-card-title>\r\n        <mat-card-subtitle class=\"plain-text\">{{card.Subtitle}}</mat-card-subtitle>\r\n    </mat-card-header>\r\n    <mat-card-content class=\"lcu-card-content\">\r\n        {{card.Content}}\r\n    </mat-card-content>\r\n</mat-card>\r\n  ",
-            styles: [".lcu-card{cursor:pointer;display:inline-block;margin:5px;min-height:250px}.lcu-card .lcu-card-avatar .mat-icon{font-size:40px}.lcu-card .lcu-card-content{text-align:justify;padding:5px;line-height:20px}"]
-        })
-    ], LcuComponent);
+    LcuComponent.decorators = [
+        { type: Component, args: [{
+                    selector: 'lcu-lcu',
+                    template: "<mat-card lcu id=\"lcuCard{{card.LcuId}}\" class=\"lcu-card\" (click)=\"SelectCard(card.Url)\">\r\n    <mat-card-header>\r\n        <div mat-card-avatar class=\"lcu-card-avatar\">\r\n        <mat-icon color=\"primary\">{{card.Icon}}</mat-icon>\r\n        </div>\r\n        <mat-card-title class=\"paragraph-title\">{{card.Title}}</mat-card-title>\r\n        <mat-card-subtitle class=\"plain-text\">{{card.Subtitle}}</mat-card-subtitle>\r\n    </mat-card-header>\r\n    <mat-card-content class=\"lcu-card-content\">\r\n        {{card.Content}}\r\n    </mat-card-content>\r\n</mat-card>\r\n  ",
+                    styles: [".lcu-card{cursor:pointer;display:inline-block;margin:5px;min-height:250px}.lcu-card .lcu-card-avatar .mat-icon{font-size:40px}.lcu-card .lcu-card-content{text-align:justify;padding:5px;line-height:20px}"]
+                },] }
+    ];
+    LcuComponent.ctorParameters = function () { return []; };
+    LcuComponent.propDecorators = {
+        card: [{ type: Input }],
+        cardSelected: [{ type: Output }]
+    };
     return LcuComponent;
 }());
 
@@ -185,28 +186,32 @@ var LcuDirective = /** @class */ (function () {
         { type: Renderer2 },
         { type: ThemeColorPickerService }
     ]; };
-    __decorate([
-        HostListener('mouseenter')
-    ], LcuDirective.prototype, "onMouseEnter", null);
-    __decorate([
-        HostListener('mouseleave')
-    ], LcuDirective.prototype, "onMouseLeave", null);
-    LcuDirective = __decorate([
-        Directive({
-            selector: '[lcu]'
-        })
-    ], LcuDirective);
+    LcuDirective.decorators = [
+        { type: Directive, args: [{
+                    selector: '[lcu]'
+                },] }
+    ];
+    LcuDirective.ctorParameters = function () { return [
+        { type: ElementRef },
+        { type: Renderer2 },
+        { type: ThemeColorPickerService }
+    ]; };
+    LcuDirective.propDecorators = {
+        onMouseEnter: [{ type: HostListener, args: ['mouseenter',] }],
+        onMouseLeave: [{ type: HostListener, args: ['mouseleave',] }]
+    };
     return LcuDirective;
 }());
 
 var AtlasPopupDirective = /** @class */ (function () {
     function AtlasPopupDirective() {
     }
-    AtlasPopupDirective = __decorate([
-        Directive({
-            selector: '[amPopup]'
-        })
-    ], AtlasPopupDirective);
+    AtlasPopupDirective.decorators = [
+        { type: Directive, args: [{
+                    selector: '[amPopup]'
+                },] }
+    ];
+    AtlasPopupDirective.ctorParameters = function () { return []; };
     return AtlasPopupDirective;
 }());
 
@@ -271,7 +276,7 @@ var LcuMapsAzureMapElementComponent = /** @class */ (function (_super) {
             console.log('Map was created!', this.map);
         }
         catch (e) {
-            console.log('CHECK YOUR CONFIG!', e);
+            console.error('CHECK YOUR CONFIG!', e);
         }
     };
     LcuMapsAzureMapElementComponent.prototype.emitLoaded = function () {
@@ -421,72 +426,62 @@ var LcuMapsAzureMapElementComponent = /** @class */ (function (_super) {
         { type: Injector },
         { type: LoadMapService }
     ]; };
-    __decorate([
-        Input('initial-config')
-    ], LcuMapsAzureMapElementComponent.prototype, "InitialConfig", void 0);
-    __decorate([
-        Input('id')
-    ], LcuMapsAzureMapElementComponent.prototype, "ID", void 0);
-    __decorate([
-        Output('on-map-click')
-    ], LcuMapsAzureMapElementComponent.prototype, "OnMapClick", void 0);
-    __decorate([
-        Output('loaded')
-    ], LcuMapsAzureMapElementComponent.prototype, "Loaded", void 0);
-    __decorate([
-        ViewChild('popupsContainer', { read: ViewContainerRef })
-    ], LcuMapsAzureMapElementComponent.prototype, "popupsContainer", void 0);
-    __decorate([
-        ViewChildren('mapWrapper')
-    ], LcuMapsAzureMapElementComponent.prototype, "childrenComponent", void 0);
-    __decorate([
-        ContentChild(AtlasPopupDirective, { read: TemplateRef })
-    ], LcuMapsAzureMapElementComponent.prototype, "popupTemplate", void 0);
-    LcuMapsAzureMapElementComponent = __decorate([
-        Component({
-            selector: SELECTOR_LCU_MAPS_AZURE_MAP_ELEMENT,
-            template: "<div #mapWrapper class=\"atlas-map\"></div>\r\n\r\n<div id=\"popupWrapper\">\r\n  <div #popupsContainer>\r\n  </div>\r\n</div>",
-            styles: [".atlas-map{position:relative;width:100%;height:100%}"]
-        })
-    ], LcuMapsAzureMapElementComponent);
+    LcuMapsAzureMapElementComponent.decorators = [
+        { type: Component, args: [{
+                    selector: SELECTOR_LCU_MAPS_AZURE_MAP_ELEMENT,
+                    template: "<div #mapWrapper class=\"atlas-map\"></div>\r\n\r\n<div id=\"popupWrapper\">\r\n  <div #popupsContainer>\r\n  </div>\r\n</div>",
+                    styles: [".atlas-map{position:relative;width:100%;height:100%}"]
+                },] }
+    ];
+    LcuMapsAzureMapElementComponent.ctorParameters = function () { return [
+        { type: Injector },
+        { type: LoadMapService }
+    ]; };
+    LcuMapsAzureMapElementComponent.propDecorators = {
+        InitialConfig: [{ type: Input, args: ['initial-config',] }],
+        ID: [{ type: Input, args: ['id',] }],
+        OnMapClick: [{ type: Output, args: ['on-map-click',] }],
+        Loaded: [{ type: Output, args: ['loaded',] }],
+        popupsContainer: [{ type: ViewChild, args: ['popupsContainer', { read: ViewContainerRef },] }],
+        childrenComponent: [{ type: ViewChildren, args: ['mapWrapper',] }],
+        popupTemplate: [{ type: ContentChild, args: [AtlasPopupDirective, { read: TemplateRef },] }]
+    };
     return LcuMapsAzureMapElementComponent;
 }(LcuElementComponent));
 
 var LcuMapsModule = /** @class */ (function () {
     function LcuMapsModule() {
     }
-    LcuMapsModule_1 = LcuMapsModule;
     LcuMapsModule.forRoot = function () {
         return {
-            ngModule: LcuMapsModule_1,
+            ngModule: LcuMapsModule,
             providers: [LcuService, LoadMapService]
         };
     };
-    var LcuMapsModule_1;
-    LcuMapsModule = LcuMapsModule_1 = __decorate([
-        NgModule({
-            declarations: [
-                LcuComponent,
-                LcuDirective,
-                LcuMapsAzureMapElementComponent,
-                AtlasPopupDirective
-            ],
-            imports: [
-                FathymSharedModule,
-                FormsModule,
-                ReactiveFormsModule,
-                FlexLayoutModule,
-                MaterialModule
-            ],
-            exports: [
-                LcuComponent,
-                LcuDirective,
-                LcuMapsAzureMapElementComponent,
-                AtlasPopupDirective
-            ],
-            entryComponents: [LcuMapsAzureMapElementComponent]
-        })
-    ], LcuMapsModule);
+    LcuMapsModule.decorators = [
+        { type: NgModule, args: [{
+                    declarations: [
+                        LcuComponent,
+                        LcuDirective,
+                        LcuMapsAzureMapElementComponent,
+                        AtlasPopupDirective
+                    ],
+                    imports: [
+                        FathymSharedModule,
+                        FormsModule,
+                        ReactiveFormsModule,
+                        FlexLayoutModule,
+                        MaterialModule
+                    ],
+                    exports: [
+                        LcuComponent,
+                        LcuDirective,
+                        LcuMapsAzureMapElementComponent,
+                        AtlasPopupDirective
+                    ],
+                    entryComponents: [LcuMapsAzureMapElementComponent]
+                },] }
+    ];
     return LcuMapsModule;
 }());
 
@@ -527,11 +522,14 @@ var LcuManagementStateContext = /** @class */ (function (_super) {
         { type: Injector }
     ]; };
     LcuManagementStateContext.ɵprov = ɵɵdefineInjectable({ factory: function LcuManagementStateContext_Factory() { return new LcuManagementStateContext(ɵɵinject(INJECTOR)); }, token: LcuManagementStateContext, providedIn: "root" });
-    LcuManagementStateContext = __decorate([
-        Injectable({
-            providedIn: 'root'
-        })
-    ], LcuManagementStateContext);
+    LcuManagementStateContext.decorators = [
+        { type: Injectable, args: [{
+                    providedIn: 'root'
+                },] }
+    ];
+    LcuManagementStateContext.ctorParameters = function () { return [
+        { type: Injector }
+    ]; };
     return LcuManagementStateContext;
 }(StateContext));
 
