@@ -548,7 +548,7 @@ var LcuUtils = /** @class */ (function () {
     return LcuUtils;
 }());
 
-/// <reference path="./lib/types/atlas.d.ts" />
+/// <reference path='./lib/types/atlas.d.ts' />
 
 /**
  * Generated bundle index. Do not edit.

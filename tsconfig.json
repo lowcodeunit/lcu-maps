@@ -11,6 +11,9 @@
 		"moduleResolution": "node",
 		"importHelpers": true,
 		"target": "es2015",
+		"types": [
+			"./src/lib/types"
+		],
 		"lib": [
 			"es2018",
 			"dom"
@@ -25,7 +28,7 @@
 		"suppressImplicitAnyIndexErrors": true
 	},
 	"angularCompilerOptions": {
-		"fullTemplateTypeCheck": false,
+		"fullTemplateTypeCheck": true,
 		"strictInjectionParameters": true,
 		"enableIvy": false,
 		"strictTemplates": true

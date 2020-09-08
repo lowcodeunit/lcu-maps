@@ -1,4 +1,4 @@
-/// <reference path="./lib/types/atlas.d.ts" />
+/// <reference path='./lib/types/atlas.d.ts' />
 
 export * from './lib/lcu-maps.module';
 export * from './lib/controls/lcu/lcu.component';
